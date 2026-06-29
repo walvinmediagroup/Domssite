@@ -10,13 +10,14 @@ function figmaAssetResolver() {
     resolveId(id) {
       if (id.startsWith('figma:asset/')) {
         const filename = id.replace('figma:asset/', '')
-        return path.resolve(domssite, 'src/assets', filename)
+        return path.resolve(__dirname, 'src/assets', filename)
       }
     },
   }
 }
 
 export default defineConfig({
+  base: '/Domssite/',
   plugins: [
     figmaAssetResolver(),
     // The React and Tailwind plugins are both required for Make, even if
@@ -27,7 +28,7 @@ export default defineConfig({
   resolve: {
     alias: {
       // Alias @ to the src directory
-      '@': path.resolve(domssite, './src'),
+      '@': path.resolve(__dirname, './src'),
     },
   },
 
