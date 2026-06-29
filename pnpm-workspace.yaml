@@ -8,3 +8,6 @@ supportedArchitectures:
     - arm64
   libc:
     - glibc
+allowBuilds:
+  "@tailwindcss/oxide": true
+  esbuild: true
